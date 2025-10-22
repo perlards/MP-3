@@ -3,9 +3,10 @@ import styled from "styled-components";
 
     const StyledMain = styled.main`
         background-color: #fff1f1;
-        width: 70%;
+        width: 100%;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 0;
+        height: 120vw;
         text-align: left;
     `;
 
@@ -25,7 +26,31 @@ import styled from "styled-components";
         `;
 
     const CalcContainer = styled.div`
-        margin-left: 50px;
+        margin: 20px auto;
+        padding: 15px;
+        text-align: center;
+        width: fit-content;
+        background-color: #fff1f1;
+        input {
+            margin: 5px;
+            padding: 5px;
+            font-size: calc(8px + 2vw);
+        }
+        button {
+            background-color: #E9B3FB;
+            border: none;
+            padding: 8px 12px;
+            margin: 5px;
+            font-size: calc(5px + 1.5vw);
+        }
+        p {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #3B0270;
+            font-size: calc(5px + 1.5vw);
+
+        }
+       
     `;
 
     const CalcButtons = styled.div`
@@ -34,88 +59,52 @@ import styled from "styled-components";
             margin-right: 10px;
             margin-top: 5px;
             padding: 5px 10px;
-            font-size: 1rem;
           }
     `;
-    const Result = styled.h3<{ isNegative: boolean }>`
-        color: ${(props) => (props.isNegative ? "red" : "black")};
-        margin-top: 10px;
+    const StyledLabel = styled.label`
+        margin-top: 15px;
+        font-weight: bold;
+        color: #3B0270;
+        font-size: calc(5px + 1.5vw);
+
     `;
 
-function useCalculator() {
+
+export default function Projects() {
+
     const [one, setOne] = useState("");
     const [two, setTwo] = useState("");
-    const [result, setResult] = useState<number | null>(null);
+    const [result, setResult] = useState<string | number>("");
 
-    const calculate = (operation: string) => {
-        const num1 = Number(one);
-        const num2 = Number(two);
-        let res = 0;
+    const num1 = Number(one);
+    const num2 = Number(two);
 
-        switch (operation) {
-            case "add":
-                res = num1 + num2;
-                break;
-            case "subtract":
-                res = num1 - num2;
-                break;
-            case "multiply":
-                res = num1 * num2;
-                break;
-            case "divide":
-                res = num1 / num2;
-                break;
-            case "power":
-                res = Math.pow(num1, num2);
-                break;
-            default:
-                res = 0;
+    const doAdd =() => setResult(num1+num2);
+    const doSubtract =() => setResult(num1-num2);
+    const doMultiply =() => setResult(num1*num2);
+    const doDivide =() => setResult(num1/num2);
+    const doPower =() => {
+        let result = 1;
+        for (let i = 0; i<num2;i++){
+            result *= num1;
         }
-
-        setResult(res);
+        setResult(result);
     };
 
     const clear = () => {
         setOne("");
         setTwo("");
-        setResult(null);
+        setResult("");
     };
 
-    return { one, setOne, two, setTwo, result, calculate, clear };
-}
-function Calculator() {
-    const { one, setOne, two, setTwo, result, calculate, clear } = useCalculator();
-    return (
-        <CalcContainer>
-            <div>
-                <label>Give me a number:</label>
-                <input value={one} onChange={(e) => setOne(e.target.value)} />
-            </div>
-            <div>
-                <label>Give me a number:</label>
-                <input value={two} onChange={(e) => setTwo(e.target.value)} />
-            </div>
-
-            <CalcButtons>
-                <button onClick={() => calculate("add")}>Add</button>
-                <button onClick={() => calculate("subtract")}>Subtract</button>
-                <button onClick={() => calculate("multiply")}>Multiply</button>
-                <button onClick={() => calculate("divide")}>Divide</button>
-                <button onClick={() => calculate("power")}>Power</button>
-                <button onClick={clear}>Clear</button>
-            </CalcButtons>
-
-            <div>
-                <p>Result:</p>
-                <Result isNegative={result !== null && result < 0}>{result !== null ? result : ""}</Result>
-            </div>
-        </CalcContainer>
-    );
-}
-
-export default function Projects() {
+    const NegResult = ( result: string | number) => {
+        return{
+            color: Number(result)<0 ? "red" : "black"
+        };
+    }
     return (
         <StyledMain>
+            <title > Resume | Projects </title>
             <StyledHeading3>Personal Website</StyledHeading3>
             <StyledList>
                 <li>
@@ -129,7 +118,29 @@ export default function Projects() {
             </StyledList>
 
             <StyledHeading3>Calculator</StyledHeading3>
-            <Calculator />
+            <CalcContainer>
+                <div>
+                    <StyledLabel>Give me a number:</StyledLabel>
+                    <input value={one} onChange={(e) => setOne(e.target.value)} />
+                </div>
+                <div>
+                    <StyledLabel>Give me a number:</StyledLabel>
+                    <input value={two} onChange={(e) => setTwo(e.target.value)} />
+                </div>
+
+                <CalcButtons>
+                    <button onClick={doAdd}>Add</button>
+                    <button onClick={doSubtract}>Subtract</button>
+                    <button onClick={doMultiply}>Multiply</button>
+                    <button onClick={doDivide}>Divide</button>
+                    <button onClick={doPower}>Power</button>
+                    <button onClick={clear}>Clear</button>
+                </CalcButtons>
+                <div>
+                    <p>Result:</p>
+                    <output id="output" style = {NegResult(result)}>{result}</output>
+                </div>
+            </CalcContainer>
         </StyledMain>
     );
 }

@@ -1,30 +1,32 @@
 import styled from "styled-components";
 
     const StyledMain = styled.main`
-          background-color: #fff1f1;
-          width: 70%;
-          margin: 0 auto;
-          padding: 20px;
-          text-align: left;
+        background-color: #fff1f1;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 0;
+        text-align: left;
         `;
 
     const StyledHeading3 = styled.h3`
-          font-size: calc(10px + 2vw);
-          color: #6F00FF;
-          margin-left: 20px;
-          padding-top: 50px;
+        font-size: calc(10px + 2vw);
+        color: #6F00FF;
+        margin-left: 20px;
+        padding-top: 50px;
         `;
 
     const StyledList = styled.ul`
-          font-size: calc(5px + 2vw);
-          color: #3B0270;
-          margin-left: 50px;
-          margin-right: 50px;
-          padding-top: 10px;
+        font-size: calc(5px + 2vw);
+        color: #3B0270;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding-top: 10px;
         `;
+
 export default function Education(){
     return (
         <StyledMain>
+            <title > resume | Education </title>
             <StyledHeading3>Boston University 2027</StyledHeading3>
                 <StyledList>
                     <li>Bachelor of Arts, Computer Science, Minor in Business Administration and Management</li>
@@ -41,5 +43,6 @@ export default function Education(){
                     <li>President of my schools Spanish Club and Spanish Honor Society as well as was involved in my schools Robotics team, Math Honor Society, English Honor Society, Rho Kappa, Multicultural and DECA.</li>
                 </StyledList>
         </StyledMain>
+
     );
 }

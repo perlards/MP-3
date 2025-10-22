@@ -1,9 +1,9 @@
 import styled from "styled-components";
     const StyledMain = styled.main`
         background-color: #fff1f1;
-        width: 70%;
+        width: 100%;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 0;
         text-align: left;
     `;
 
@@ -31,6 +31,7 @@ import styled from "styled-components";
 export default function Experience(){
     return (
         <StyledMain>
+            <title > Resume | Experiences </title>
             <StyledHeading3>BostonHacks</StyledHeading3>
                 <StyledHeading4>Marketing Officer (current position)</StyledHeading4>
                     <StyledList>

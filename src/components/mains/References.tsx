@@ -1,11 +1,12 @@
 import styled from "styled-components";
     const StyledMain = styled.main`
-            background-color: #fff1f1;
-            width: 70%;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: left;
-        `;
+        background-color: #fff1f1;
+        width: 100%;
+        height: 120vw;
+        margin: 0 auto;
+        padding: 20px 0;
+        text-align: left;
+    `;
 
     const StyledHeading3 = styled.h3`
               font-size: calc(10px + 2vw);
@@ -30,6 +31,7 @@ import styled from "styled-components";
 export default function Home(){
     return (
         <StyledMain>
+            <title > Resume | References </title>
             <StyledHeading3>IT Ops Mgr</StyledHeading3>
                 <StyledHeading4>Alejandro Pajon</StyledHeading4>
                     <StyledList>

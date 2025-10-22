@@ -1,24 +1,24 @@
 import styled from "styled-components";
     const StyledMain = styled.main`
-      background-color: #fff1f1;
-      width: 70%;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: left;
+        background-color: #fff1f1;    
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 0;
+        text-align: left;
     `;
 
     const StyledHeading3 = styled.h3`
-      font-size: calc(10px + 2vw);
-      color: #6F00FF;
-      margin-left: 20px;
-      padding-top: 50px;
-    `;
+        font-size: calc(10px + 2vw);
+        color: #6F00FF;
+        margin-left: 20px;
+        padding-top: 50px;
+        `;
 
     const StyledHeading4 = styled.h4`
-      font-size: calc(8px + 2vw);
-      color: #3B0270;
-      margin-left: 30px;
-    `;
+        font-size: calc(8px + 2vw);
+        color: #3B0270;
+        margin-left: 30px;
+        `;
 
     const StyledList = styled.ul`
       font-size: calc(5px + 2vw);
@@ -30,6 +30,7 @@ import styled from "styled-components";
 export default function Home(){
     return (
         <StyledMain>
+            <title > Resume | Hobbies </title>
             <StyledHeading3>Sports</StyledHeading3>
                 <StyledHeading4>Soccer</StyledHeading4>
                     <StyledList>

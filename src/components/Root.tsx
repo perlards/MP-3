@@ -8,17 +8,48 @@ import Experience from "./mains/Experience.tsx";
 import Projects from "./mains/Projects.tsx";
 import References from "./mains/References.tsx";
 import Hobbies from "./mains/Hobbies.tsx";
+import styled from "styled-components";
+
+const StyledBackground = styled.div`
+    background-color: #fff1f1;
+
+`;
+const StyledPageWrapper = styled.div`
+    background-color: #fff1f1;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+    
 
 
+`;
+const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 
+    @media screen and (max-width: 750px) {
+        flex-direction: column;
+    }
+`;
+
+const MainContent = styled.main`
+    width: 70%;
+
+    @media screen and (max-width: 750px) {  
+        width: 100%;
+  }
+`;
 
 export default function Root(){
     return (
         <>
-        <div>
+        <StyledBackground>
+        <StyledPageWrapper>
             <Header />
-            <div>
+            <StyledDiv>
                 <Nav/>
+                <MainContent>
                 <Routes>
                     <Route path={`/`} element={<Home/>}/>
                     <Route path={`/education`} element={<Education/>}/>
@@ -27,9 +58,11 @@ export default function Root(){
                     <Route path={`/references`} element={<References/>}/>
                     <Route path={`/hobbies`} element={<Hobbies/>}/>
                 </Routes>
-            </div>
+                </MainContent>
+            </StyledDiv>
             <Footer/>
-        </div>
+        </StyledPageWrapper>
+        </StyledBackground>
         </>
     )
 }
