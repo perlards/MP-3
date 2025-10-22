@@ -3,6 +3,7 @@ import styled from "styled-components";
     const StyledMain = styled.main`
         background-color: #fff1f1;
         width: 100%;
+        height: 100vw;
         margin: 0 auto;
         padding: 20px 0;
         text-align: left;

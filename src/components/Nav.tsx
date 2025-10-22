@@ -24,9 +24,9 @@ const StyledUl = styled.ul`
     }
 
   @media screen and (max-width: 750px) {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 `;
 
 
@@ -36,8 +36,8 @@ const StyledLi = styled.li`
     margin: 50px 0;
 `;
 const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
     `;
 
 export default function Nav() {
